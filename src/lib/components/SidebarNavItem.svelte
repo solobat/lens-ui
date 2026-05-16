@@ -9,6 +9,7 @@
 <button
   class={`lens-sidebar-nav-item ${active ? "is-active" : ""} ${className}`.trim()}
   type={type}
+  on:click
   {...$$restProps}
 >
   {#if $$slots.leading}
