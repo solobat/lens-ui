@@ -24,9 +24,17 @@
 
 ## 使用方式
 
-### 1. 本地联调
+### 1. 直接从 GitHub 安装
 
-如果 `lens-ui` 作为独立项目放在 `~/github/lens-ui`，并且你的业务项目也在 `~/github` 下，可以直接把它当兄弟仓库安装：
+如果三个前端项目都是独立仓库、独立部署，最直接的接法是直接引用这个仓库：
+
+```bash
+npm install git+https://github.com/solobat/lens-ui.git#main
+```
+
+### 2. 本地联调
+
+如果 `lens-ui` 作为独立项目放在 `~/github/lens-ui`，并且你的业务项目也在 `~/github` 下，也可以先把它当兄弟仓库安装：
 
 ```bash
 npm install ../lens-ui
@@ -45,7 +53,7 @@ import { initTheme, toggleTheme } from "@solobat/lens-ui/theme";
 @import "@solobat/lens-ui/theme.css";
 ```
 
-### 2. 三个独立仓库正式共用
+### 3. 三个独立仓库正式共用
 
 更适合 Vercel 的方式有两种：
 
