@@ -1,0 +1,32 @@
+{
+  "name": "@solobat/lens-ui",
+  "version": "0.1.0",
+  "description": "Shared Svelte UI foundation for the Solobat monitoring frontends.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "svelte": "./src/lib/index.js",
+  "files": [
+    "src"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "svelte": "./src/lib/index.js",
+      "default": "./src/lib/index.js"
+    },
+    "./theme": "./src/lib/theme.js",
+    "./theme.css": "./src/lib/theme.css",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "pack:check": "npm pack --dry-run"
+  }
+}
