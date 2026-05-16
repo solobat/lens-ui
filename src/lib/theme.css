@@ -72,6 +72,10 @@ body {
     linear-gradient(180deg, var(--lens-bg-2) 0%, var(--lens-bg) 100%);
 }
 
+body.lens-sidebar-open {
+  overflow: hidden;
+}
+
 button,
 input,
 select,
@@ -135,6 +139,40 @@ h3 {
   align-items: start;
 }
 
+.lens-app-shell__mobile-bar,
+.lens-app-shell__backdrop {
+  display: none;
+}
+
+.lens-app-shell__mobile-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.6rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--lens-line);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 16%),
+    linear-gradient(135deg, color-mix(in srgb, var(--lens-accent) 8%, transparent), transparent 48%),
+    var(--lens-panel);
+  box-shadow: 0 20px 40px -34px var(--lens-shadow);
+  color: var(--lens-text);
+}
+
+.lens-app-shell__mobile-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--lens-line);
+  color: var(--lens-text-muted);
+  font-size: 0.78rem;
+  flex: 0 0 auto;
+}
+
 .lens-app-shell__sidebar,
 .lens-app-shell__main,
 .lens-hero-banner__copy,
@@ -150,6 +188,10 @@ h3 {
 .lens-app-shell__main {
   display: grid;
   gap: 1rem;
+}
+
+.lens-app-shell__sidebar-inner {
+  min-width: 0;
 }
 
 .lens-app-sidebar,
@@ -541,6 +583,55 @@ h3 {
   .lens-stage--auth,
   .lens-workspace {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lens-app-shell__mobile-bar {
+    display: flex;
+    position: sticky;
+    top: 0.75rem;
+    z-index: 32;
+  }
+
+  .lens-app-shell__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 36;
+    display: block;
+    width: min(22rem, calc(100vw - 1.2rem));
+    max-width: calc(100vw - 1.2rem);
+    padding: 0.6rem;
+    box-sizing: border-box;
+    transform: translateX(calc(-100% - 0.8rem));
+    transition: transform 180ms ease;
+    pointer-events: none;
+  }
+
+  .lens-app-shell__sidebar--open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .lens-app-shell__sidebar-inner,
+  .lens-app-shell__sidebar .lens-app-sidebar {
+    height: 100%;
+  }
+
+  .lens-app-shell__sidebar .lens-app-sidebar {
+    min-height: 100%;
+    overflow: auto;
+  }
+
+  .lens-app-shell__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 35;
+    border: 0;
+    padding: 0;
+    background: rgba(10, 17, 27, 0.48);
+    backdrop-filter: blur(6px);
   }
 
   .lens-app-shell__sidebar--sticky {
