@@ -213,6 +213,11 @@ h3 {
   border-radius: 1rem;
 }
 
+.lens-app-sidebar--compact {
+  min-height: auto;
+  align-content: start;
+}
+
 .lens-app-sidebar__brand,
 .lens-app-sidebar__nav,
 .lens-app-sidebar__tools,
@@ -223,6 +228,10 @@ h3 {
 
 .lens-app-sidebar__footer {
   margin-top: auto;
+}
+
+.lens-app-sidebar__footer--inline {
+  margin-top: 0;
 }
 
 .lens-sidebar-nav-item {
